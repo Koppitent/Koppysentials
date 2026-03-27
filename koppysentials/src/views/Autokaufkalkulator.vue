@@ -115,11 +115,27 @@
             <span class="text-slate-400">Kosten pro km</span>
             <span class="font-semibold">{{ formatCurrency(kostenProKilometer) }}</span>
           </div>
+					<div class="flex items-center justify-between gap-4">
+            <span class="text-slate-400">Gesamte Kilometer gefahren</span>
+            <span class="font-semibold">{{ formatNumber(kilometerprojahr * nutzungsdauer) }} km</span>
+          </div>
           <div class="mt-3 rounded-md border border-[color:var(--color-border)] bg-[color:var(--color-background)] p-3 text-xs text-slate-400">
             <p>
               Formel: Gesamtkosten/Jahr = Kaufpreis ÷ Nutzungsdauer + Stromkosten/Jahr + Versicherung/Jahr
             </p>
           </div>
+					<div class="flex items-center justify-between gap-4">
+						<LinkButton
+							title="Kalkulation speichern"
+							:icon="LucideSave"
+							@click="saveCalculation"
+						/>
+						<LinkButton
+							title="Kalkulation exportieren"
+							:icon="LucideDownload"
+							@click="exportCalculation"
+						/>
+					</div>
         </div>
       </aside>
     </div>
@@ -128,6 +144,8 @@
 
 <script setup lang="ts">
 import NumberSliderInput from '@/components/NumberSliderInput.vue'
+import LinkButton from '@/components/LinkButton.vue'
+import { LucideDownload, LucideSave } from 'lucide-vue-next'
 import { computed, ref } from 'vue'
 
 const kaufpreis = ref(30000)
@@ -151,5 +169,39 @@ const euroFormatter = new Intl.NumberFormat('de-DE', {
   maximumFractionDigits: 2,
 })
 
+const numberFormatter = new Intl.NumberFormat('de-DE', {
+  style: 'decimal',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+})
+
 const formatCurrency = (value: number) => euroFormatter.format(value)
+const formatNumber = (value: number) => numberFormatter.format(value)
+
+
+const saveCalculation = () => {
+	console.log('Kalkulation gespeichert:', {
+		kaufpreis: kaufpreis.value,
+		nutzungsdauer: nutzungsdauer.value,
+		kilometerprojahr: kilometerprojahr.value,
+		kwhverbrauch: kwhverbrauch.value,
+		kostenprokwh: kostenprokwh.value,
+		versicherungprojahr: versicherungprojahr.value
+	});
+  // Implementation for saving the calculation
+}
+
+const exportCalculation = () => {
+	console.log('Kalkulation exportiert:', {
+		kaufpreis: kaufpreis.value,
+		nutzungsdauer: nutzungsdauer.value,
+		kilometerprojahr: kilometerprojahr.value,
+		kwhverbrauch: kwhverbrauch.value,
+		kostenprokwh: kostenprokwh.value,
+		versicherungprojahr: versicherungprojahr.value
+	});
+	// Implementation for exporting the calculation (e.g., as CSV or PDF)
+}
+
+
 </script>
