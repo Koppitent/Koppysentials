@@ -19,6 +19,14 @@
 						Kreditrechner
 					</RouterLink>
 				</li>
+				<li>
+					<RouterLink
+						to="/autokauf-rechner"
+						class="text-sm text-[color:var(--color-text)] hover:text-[color:var(--color-text-highlight)] transition-colors"
+					>
+						Autokauf-Rechner
+					</RouterLink>
+				</li>
 			</ul>
 		</nav>
 	</div>

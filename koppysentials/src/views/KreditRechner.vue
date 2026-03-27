@@ -1,11 +1,11 @@
 <template>
-  <main class="min-h-screen px-4 py-8 text-[color:var(--color-heading)] sm:px-6 lg:py-14">
+  <main class="px-4 py-8 text-[color:var(--color-heading)] sm:px-6 lg:py-14">
     <div class="mx-auto w-full max-w-2xl">
       <h1 class="text-3xl font-semibold tracking-tight">Kreditrechner</h1>
       <p class="mt-2 text-sm text-[color:var(--color-text)]">Passe die Werte per Nummernfeld oder Slider an.</p>
 
       <div class="mt-8 grid gap-6">
-        <NumberInput
+        <NumberSliderInput
           id="amount"
           label="Kreditbetrag"
           v-model="amount"
@@ -15,7 +15,7 @@
           :step="500"
         />
 
-        <NumberInput
+        <NumberSliderInput
           id="interest"
           label="Zinssatz (%)"
           v-model="interestRate"
@@ -25,7 +25,7 @@
           :step="0.1"
         />
 
-        <NumberInput
+        <NumberSliderInput
           id="duration"
           label="Laufzeit (Monate)"
           v-model="durationMonths"
@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import NumberInput from '@/components/NumberInput.vue'
+import NumberSliderInput from '@/components/NumberSliderInput.vue'
 
 const amount = ref(20000)
 const interestRate = ref(6.5)

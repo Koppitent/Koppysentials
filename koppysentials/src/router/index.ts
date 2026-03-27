@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
-	{ path: '/', alias: '/home', component: () => import('@/views/HomeView.vue') },
+  { path: '/', alias: '/home', component: () => import('@/views/HomeView.vue') },
   { path: '/kreditrechner', component: () => import('@/views/KreditRechner.vue') },
+  { path: '/autokauf-rechner', component: () => import('@/views/Autokaufkalkulator.vue') },
 ]
 
 const router = createRouter({
