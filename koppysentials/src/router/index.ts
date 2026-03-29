@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   { path: '/', alias: '/home', component: () => import('@/views/HomeView.vue') },
+  { path: '/fettrechner', component: () => import('@/views/FettRechner.vue') },
   { path: '/kreditrechner', component: () => import('@/views/KreditRechner.vue') },
   { path: '/autokauf-rechner', component: () => import('@/views/Autokaufkalkulator.vue') },
 ]

@@ -22,11 +22,18 @@
 					:icon="LucideCar"
 				/>
 			</li>
+			<li>
+				<LinkButton
+					title="Fettrechner"
+					to="/fettrechner"
+					:icon="LucideWeight"
+				/>
+			</li>
 		</ul>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { LucideCalculator, LucideCar } from 'lucide-vue-next';
+import { LucideCalculator, LucideCar, LucideWeight } from 'lucide-vue-next';
 import LinkButton from '@/components/LinkButton.vue';
 </script>
